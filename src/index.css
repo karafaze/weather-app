@@ -14,6 +14,7 @@
 body{
     margin: 0;
     padding: 0;
+    color: #000;
 }
 
 .main--container{
@@ -21,7 +22,61 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--light-color-secondary);
+    background-color: var(--light-color-primary);
     font-family: var(--font-text);
 }
 
+/* FORM / SEARCHBAR */
+.form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1em 0;
+    width: 100%;
+}
+
+.form--label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.4em .2em ;
+}
+
+.form--label > i{
+    font-size: 1.8em;
+    cursor: pointer;
+    color: #000;
+}
+
+.form--input{
+    padding: .5em .5em .4em 0.2em;
+    font-family: var(--font-text);
+    font-size: 1.3em;
+    outline: none;
+    border: none;
+    border-radius: 10px 0px 0px 10px;
+    background-color: var(--light-color-secondary);
+}
+
+.form--input::placeholder{
+    color: rgba(0, 0, 0, .5);
+}
+
+.form--btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .6em;
+    border: none;
+    border-radius: 0px 10px 10px 0px;
+    background-color: var(--light-color-secondary);
+    border-left: 1px solid #000;
+}
+
+.form--btn > i{
+    font-size: 2em;
+    cursor: pointer;
+}
+
+/* WEATHER */

@@ -13,17 +13,18 @@ export default function App() {
     return (
         <main className="main--container">
             <form className="form">
-                <label htmlFor="city">
+                <label className="form--label" htmlFor="city">
                     <i className="ri-map-pin-2-line"></i>
                 </label>
                 <input
+                    placeholder="Paris"
                     id="city"
                     className="form--input"
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
                 />
                 <button className="form--btn">
-                    <i className="ri-search-line form--btn__icon"></i>
+                    <i className="ri-search-line"></i>
                 </button>
             </form>
             <section className="weather">
