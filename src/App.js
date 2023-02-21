@@ -27,20 +27,22 @@ export default function App() {
                     <i className="ri-search-line"></i>
                 </button>
             </form>
-            <section className="weather">
+            <section className="weather--list">
                 <article className="weather--single">
-                    <h2>Paris</h2>
-                    <h3>11h59 AM/PM</h3>
+                    <div className="weather--detail">
+                        <h2 className="weather--city">Paris</h2>
+                        <h3 className="weather--time">11h59 AM/PM</h3>
+                    </div>
                     <div className="weather--main">
                         <div className="weather--main__degree">
                             <p>37 °C</p>
                             <span>Feels like : 27 °C</span>
                         </div>
                         <div className="weather--main__global">
-                            Sunny
+                            <p>Sunny</p>
                         </div>
                     </div>
-                    <div className="weather--addtionnal">
+                    <div className="weather--additionnal">
                         <p>Wind : 1,75</p>
                         <p>Clouds : 98</p>
                         <p>Humidity : 69</p>
