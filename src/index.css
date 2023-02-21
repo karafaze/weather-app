@@ -1,4 +1,27 @@
+:root{
+    --light-color-primary: #F9F7F7;
+    --light-color-secondary: #DBE2EF;
+    --light-color-tertiary: #3F72AF;
+    --light-color-quaternary: #112D4E;
+    --dark-color-primary: #1B262C;
+    --dark-color-secondary: #0F4C75;
+    --dark-color-tertiary: #3282B8;
+    --dark-color-quaternary: #BBE1FA;
+    --font-title: 'Righteous', cursive;
+    --font-text: 'Karla', sans-serif;
+}
+
 body{
     margin: 0;
     padding: 0;
 }
+
+.main--container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--light-color-secondary);
+    font-family: var(--font-text);
+}
+
