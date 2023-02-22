@@ -2,60 +2,63 @@ import React, { useState } from "react";
 
 export default function App() {
     const [city, setCity] = useState("");
-    const [weatherData, setWeatherData] = useState({});
+    const [weatherData, setWeatherData] = useState(null);
     const getWeatherData = async (e) => {
+        e.preventDefault();
         const response = await fetch(
             `https://api.openweathermap.org/data/2.5/weather/?q=${city}&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`
         );
         const data = await response.json();
         setWeatherData(data);
     };
+
+    const getTime = (timezone) => {
+        const utcDate = new Date();
+        const localTime = utcDate + timezone * 1000;
+        const date = new Date(localTime);
+        return `${date.getHours()}h${date.getMinutes()}`;
+    };
+
     return (
         <main className="main--container">
             <form className="form">
-                <label className="form--label" htmlFor="city">
-                    <i className="ri-map-pin-2-line"></i>
-                </label>
                 <input
-                    placeholder="Paris"
+                    placeholder="Type a city..."
                     id="city"
                     className="form--input"
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
                 />
-                <button className="form--btn">
+                <button onClick={getWeatherData} className="form--btn">
                     <i className="ri-search-line"></i>
                 </button>
             </form>
-            <section className="weather--list">
-                <article className="weather--single">
-                    <div className="weather--detail">
-                        <h2 className="weather--city">Paris</h2>
-                        <h3 className="weather--time">11h59 AM/PM</h3>
-                    </div>
-                    <div className="weather--main">
-                        <div className="weather--main__degree">
-                            <p>37 °C</p>
-                            <span>Feels like : 27 °C</span>
-                        </div>
-                        <div className="weather--main__global">
-                            <p>Sunny</p>
-                        </div>
-                    </div>
-                    <div className="weather--additionnal">
-                        <p>Wind : 1,75</p>
-                        <p>Clouds : 98</p>
-                        <p>Humidity : 69</p>
-                    </div>
-                </article>
-            </section>
+            {
+                weatherData ? (
+                    <section className="weather-list">
+                        <article className="weather--single">
+                            <div className="weather--main">
+                                <p className="weather--main__global">{weatherData.weather[0].main}</p>
+                                <div className="weather--main__degree">
+                                    <p>{weatherData.main.temp.toFixed(1)}°C</p>
+                                    <span>(Feels like : {weatherData.main.feels_like.toFixed(1)}°C)</span>
+                                </div>
+                            </div>
+                            <div className="weather--detail">
+                                <h2 className="weather--city">{weatherData.name}</h2>
+                                <h3 className="weather--time">Currently : {getTime(weatherData.timezone)}</h3>
+                            </div>
+                            <div className="weather--additionnal">
+                                <p>Wind : {weatherData.wind.speed}</p>
+                                <p>Clouds : {weatherData.clouds.all}</p>
+                                <p>Humidity : {weatherData.main.humidity}</p>
+                            </div>
+                        </article>
+                    </section>
+                ) : (
+                    <p className="empty-search">Type a city in the search bar to get its detail</p>
+                )
+            }
         </main>
     );
 }
-
-// <input
-// value={city}
-// onChange={(e) => setCity(e.target.value.trim())}
-// />
-// <button
-// onClick={getWeatherData}
