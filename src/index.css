@@ -96,7 +96,7 @@ body{
     align-items: center;
     background-color: var(--dark-color-quaternary);
     color: #fff;
-    border-radius: 10px;
+    border-radius: 30px 0 30px 30px;
 }
 
 .weather--main{
@@ -108,7 +108,7 @@ body{
     gap: 1em;
     padding: 2.5em 0;
     background-color: var(--dark-color-tertiary);
-    border-radius: 10px 0 0 0;
+    border-radius: 30px 0 0 0;
 }
 
 /* WEATHER TOP SECTION */
@@ -172,7 +172,7 @@ body{
     gap: 1em;
     padding: 2em 0;
     width: 100%;
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 30px 30px;
 }
 
 .weather--additionnal > p{

@@ -13,10 +13,13 @@ export default function App() {
     };
 
     const getTime = (timezone) => {
-        const utcDate = new Date();
-        const localTime = utcDate + timezone * 1000;
-        const date = new Date(localTime);
-        return `${date.getHours()}h${date.getMinutes()}`;
+        const date = new Date();
+        const localTimeInMilliseconds = date.getTime();
+        // multiply by 60_000 to convert minutes to milliseconds
+        const localTimeOffsetInMilliseconds = date.getTimezoneOffset() * 60000
+        const utcDateInMilliseconds = localTimeInMilliseconds + localTimeOffsetInMilliseconds;
+        const clientTime = new Date(utcDateInMilliseconds + (timezone * 1000))
+        return `${clientTime.getHours()}h${clientTime.getMinutes()}`
     };
 
     return (
