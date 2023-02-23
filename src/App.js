@@ -3,13 +3,22 @@ import React, { useState } from "react";
 export default function App() {
     const [city, setCity] = useState("");
     const [weatherData, setWeatherData] = useState(null);
+    const [error, setError] = useState(null)
     const getWeatherData = async (e) => {
         e.preventDefault();
         const response = await fetch(
             `https://api.openweathermap.org/data/2.5/weather/?q=${city}&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=metric`
         );
         const data = await response.json();
-        setWeatherData(data);
+        if (data.cod === '404'){
+            setWeatherData(null)
+            setError(data.message)
+            setCity('')
+        } else {
+            setWeatherData(data);
+            setCity('')
+            setError(null)
+        }
     };
 
     const getTime = (timezone) => {
@@ -28,14 +37,15 @@ export default function App() {
                 <input
                     placeholder="Type a city..."
                     id="city"
-                    className="form--input"
+                    className={`form--input ${error ? 'form--input__error' : ''}`}
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
                 />
-                <button onClick={getWeatherData} className="form--btn">
+                <button onClick={getWeatherData} className={`form--btn ${error ? 'form--btn__error' : ''}`}>
                     <i className="ri-search-line"></i>
                 </button>
             </form>
+            { error ? <p className="error-search">Sorry the city your enter does not seems to exists</p> : null}
             {
                 weatherData ? (
                     <section className="weather-list">

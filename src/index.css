@@ -31,6 +31,7 @@ body{
     padding: 1em 0;
     width: 100%;
     height: 10vh;
+    margin-bottom: 1em;
 }
 
 .form--input{
@@ -47,6 +48,14 @@ body{
     font-weight: 200;
     font-family: var(--font-text);
 }
+
+.form--input__error{
+    border-top: 1px solid red;
+    border-left: 1px solid red;
+    border-bottom: 1px solid red;
+}
+
+
 
 .form--input::placeholder{
     font-family: var(--font-text);
@@ -67,6 +76,12 @@ body{
     background-color: var(--light-color-tertiary);
 }
 
+.form--btn__error{
+    border-top: 1px solid red;
+    border-right: 1px solid red;
+    border-bottom: 1px solid red;
+}
+
 .form--btn > i{
     font-size: 2.25em;
     cursor: pointer;
@@ -78,6 +93,14 @@ body{
     text-align: center;
     font-size: 1.6em;
     width: 70%;
+}
+
+.error-search{
+    text-align: center;
+    width: 90%;
+    font-style: italic;
+    margin-top: 0;
+    margin-bottom: 1em;
 }
 
 
