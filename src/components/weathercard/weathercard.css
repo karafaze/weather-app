@@ -1,0 +1,117 @@
+.weather--single {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--dark-color-quaternary);
+    color: #fff;
+    border-radius: 30px 0 30px 30px;
+    box-shadow: 0px 1px 10px 2px rgba(0, 0, 0, 0.43);
+}
+
+/* DELETE BTN */
+.delete-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    display: block;
+}
+
+.weather--single__warm {
+    background-color: var(--warm-color-quaternary);
+}
+
+
+/* WEATHER TOP SECTION */
+.weather--main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    padding: 2.5em 0;
+    background-color: var(--dark-color-tertiary);
+    border-radius: 30px 0 0 0;
+}
+
+.weather--main__warm {
+    background-color: var(--warm-color-tertiary);
+}
+
+.weather--main__global {
+    width: 100%;
+    text-align: center;
+    font-size: 1.7em;
+    margin: 0;
+}
+
+.weather--main__degree {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+.weather--main__degree > p {
+    font-size: 5em;
+    margin: 0;
+}
+
+.weather--main__degree > span {
+    font-size: 1em;
+    font-style: italic;
+}
+
+/* CITY TIME */
+.weather--detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    width: 100%;
+    padding: 1em 0em;
+}
+
+.weather--city {
+    text-align: center;
+    font-size: 2em;
+    font-family: var(--font-title);
+    margin: 0;
+}
+
+.weather--time {
+    font-size: 1.3em;
+    margin: 0;
+}
+
+/* ADDITIONNAL DETAILS */
+.weather--additionnal {
+    background-color: var(--dark-color-secondary);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1em;
+    padding: 2em 0;
+    width: 100%;
+    border-radius: 0 0 30px 30px;
+}
+
+.weather--additionnal__warm {
+    background-color: var(--warm-color-secondary);
+}
+
+.weather--additionnal > p {
+    margin: 0;
+    font-size: 1.2em;
+}

@@ -1,0 +1,25 @@
+.toggle-theme--wrapper {
+    width: 5em;
+    height: 2em;
+    border: 1px solid var(--dark-color-quaternary);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    background-color: var(--dark-color-quaternary);
+    cursor: pointer;
+}
+
+.toggle-theme--wrapper__warm {
+    background-color: var(--warm-color-quaternary);
+}
+
+.toggle-theme--btn {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    background-color: var(--dark-color-secondary);
+}
+
+.toggle-theme--btn__warm {
+    background-color: var(--warm-color-secondary);
+}
