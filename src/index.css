@@ -3,6 +3,10 @@
     --dark-color-secondary: #0F4C75;
     --dark-color-tertiary: #3282B8;
     --dark-color-quaternary: #BBE1FA;
+    --warm-color-primary: #B73E3E;
+    --warm-color-secondary: #DD5353;
+    --warm-color-tertiary: #DBC8AC;
+    --warm-color-quaternary: #EDDBC0;
     --font-text: 'Raleway', sans-serif;
     --font-title: 'Karla', sans-serif;
 }
@@ -14,12 +18,50 @@ body{
     color: #fff;
 }
 
+.top-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    
+}
+
 .main--container{
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: var(--dark-color-primary);
+}
+
+.main--container__warm{
+    background-color: var(--warm-color-primary);
+}
+
+/* TOGGLE THEME BTN */
+.toggle-theme--wrapper{
+    width: 5em;
+    height: 2em;
+    border: 1px solid var(--dark-color-quaternary);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    background-color: var(--dark-color-quaternary);
+}
+
+.toggle-theme--wrapper__warm{
+    background-color: var(--warm-color-quaternary);
+}
+
+.toggle-theme--btn{
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    background-color: var(--dark-color-secondary);
+}
+
+.toggle-theme--btn__warm{
+    background-color: var(--warm-color-secondary);
 }
 
 /* FORM / SEARCHBAR */
@@ -31,7 +73,6 @@ body{
     padding: 1em 0;
     width: 100%;
     height: 10vh;
-    margin-bottom: 1em;
 }
 
 .form--input{
@@ -49,13 +90,15 @@ body{
     font-family: var(--font-text);
 }
 
+.form--input__warm{
+    background-color: var(--warm-color-secondary);
+}
+
 .form--input__error{
     border-top: 1px solid red;
     border-left: 1px solid red;
     border-bottom: 1px solid red;
 }
-
-
 
 .form--input::placeholder{
     font-family: var(--font-text);
@@ -73,7 +116,12 @@ body{
     border-right: 1px solid #fff;
     border-bottom: 1px solid #fff;
     border-radius: 0px 10px 10px 0px;
-    background-color: var(--light-color-tertiary);
+    background-color: var(--dark-color-primary);
+}
+
+.form--btn__warm{
+    background-color: var(--warm-color-primary);
+
 }
 
 .form--btn__error{
@@ -106,6 +154,7 @@ body{
 
 /* WEATHER */
 .weather-list{
+    margin-top: 1em;
     height: 90vh;
     width: 90%;
     display: flex;
@@ -122,6 +171,10 @@ body{
     border-radius: 30px 0 30px 30px;
 }
 
+.weather--single__warm{
+    background-color: var(--warm-color-quaternary)
+}
+
 .weather--main{
     display: flex;
     flex-direction: column;
@@ -132,6 +185,10 @@ body{
     padding: 2.5em 0;
     background-color: var(--dark-color-tertiary);
     border-radius: 30px 0 0 0;
+}
+
+.weather--main__warm{
+    background-color: var(--warm-color-tertiary)
 }
 
 /* WEATHER TOP SECTION */
@@ -196,6 +253,10 @@ body{
     padding: 2em 0;
     width: 100%;
     border-radius: 0 0 30px 30px;
+}
+
+.weather--additionnal__warm{
+    background-color: var(--warm-color-secondary);
 }
 
 .weather--additionnal > p{
