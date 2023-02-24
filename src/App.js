@@ -6,7 +6,6 @@ import WeatherCardList from "./components/weathercardlist/WeatherCardList";
 
 export default function App() {
     const [city, setCity] = useState("");
-    const [weatherData, setWeatherData] = useState(null);
     const [weatherDataList, setWeatherDataList] = useState([]);
     const [error, setError] = useState(null);
     const [theme, setTheme] = useState("dark");
@@ -22,13 +21,11 @@ export default function App() {
             );
             const data = await response.json();
             if (data.cod === "404") {
-                setWeatherData(null);
                 setError(
                     `Sorry the city your entered (${cityName}) does not seem to exists.`
                 );
                 setCity("");
             } else {
-                setWeatherData(saveWeatherData(data));
                 setWeatherDataList((prevList) => {
                     return [saveWeatherData(data), ...prevList];
                 });
@@ -42,7 +39,6 @@ export default function App() {
         setWeatherDataList((prevList) => {
             return prevList.filter((city) => city.id !== id);
         });
-        // setWeatherData(null)
     };
 
     const toggleTheme = () => {
