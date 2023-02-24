@@ -47,6 +47,7 @@ body{
     display: flex;
     align-items: center;
     background-color: var(--dark-color-quaternary);
+    cursor: pointer;
 }
 
 .toggle-theme--wrapper__warm{
@@ -151,7 +152,6 @@ body{
     margin-bottom: 1em;
 }
 
-
 /* WEATHER */
 .weather-list{
     margin-top: 1em;
@@ -162,6 +162,7 @@ body{
 }
 
 .weather--single{
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -169,6 +170,19 @@ body{
     background-color: var(--dark-color-quaternary);
     color: #fff;
     border-radius: 30px 0 30px 30px;
+    box-shadow: 0px 1px 10px 2px rgba(0,0,0,0.43)
+}
+
+.delete-btn{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.delete-btn:hover{
+    display: block;
 }
 
 .weather--single__warm{

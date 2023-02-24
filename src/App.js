@@ -4,7 +4,6 @@ export default function App() {
     const [city, setCity] = useState("");
     const [weatherData, setWeatherData] = useState(null);
     const [error, setError] = useState(null)
-    // const [theme, setTheme] = useState('dark');
     const [theme, setTheme] = useState('dark');
 
     const getWeatherData = async (e) => {
@@ -38,6 +37,10 @@ export default function App() {
         const clientTime = new Date(utcDateInMilliseconds + (timezone * 1000))
         return `${clientTime.getHours()}h${clientTime.getMinutes()}`
     };
+
+    const deleteWeatherCar = () => {
+        setWeatherData(null)
+    }
 
     const toggleTheme = () => {
         setTheme(prevTheme => {
@@ -81,6 +84,10 @@ export default function App() {
                 weatherData ? (
                     <section className="weather-list">
                         <article className={`weather--single ${theme === 'warm' ? 'weather--single__warm': ''}`}>
+                            <i 
+                                onClick={deleteWeatherCar}
+                                class="ri-close-line delete-btn"
+                            ></i>
                             <div className={`weather--main ${theme === 'warm' ? 'weather--main__warm': ''}`}>
                                 <p className="weather--main__global">{weatherData.weather[0].main}</p>
                                 <div className="weather--main__degree">
@@ -90,7 +97,7 @@ export default function App() {
                             </div>
                             <div className="weather--detail">
                                 <h2 className="weather--city">{weatherData.name}</h2>
-                                <h3 className="weather--time">Currently : {getTime(weatherData.timezone)}</h3>
+                                <h3 className="weather--time">Current time : {getTime(weatherData.timezone)}</h3>
                             </div>
                             <div className={`weather--additionnal ${theme === 'warm' ? 'weather--additionnal__warm': ''}`}>
                                 <p>Wind : {weatherData.wind.speed}</p>
