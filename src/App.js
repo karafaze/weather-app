@@ -50,7 +50,7 @@ export default function App() {
     const saveWeatherData = (data) => {
         return {
             id: nanoid(),
-            city_name: data.name,
+            city_name: cleanCityName(data.name),
             global_temp: data.weather[0].main,
             main_temp: data.main.temp.toFixed(1),
             feels_like: data.main.feels_like.toFixed(1),
@@ -61,31 +61,39 @@ export default function App() {
         };
     };
 
+    const cleanCityName = (city) => {
+        if (city.startsWith('Arrondissement')){
+            return city.split(' ')[2]
+        } else {
+            return city
+        }
+    }
+
     document.body.style.backgroundColor =
         theme === "dark" ? "#1b262c" : "#B73E3E";
 
     return (
-        <main
-            className={`main--container ${
-                theme === "warm" ? "main--container__warm" : ""
-            }`}
-        >
-            <div className="top-section">
+        <React.Fragment>
+            <header className="header">
                 <SearchBar
                     data={{ error, theme, city, setCity, getWeatherData }}
                 />
                 <ToggleButton data={{ toggleTheme, theme }} />
-            </div>
-            {error ? <p className="error-search">{error}</p> : null}
-            {weatherDataList.length > 0 ? (
-                <WeatherCardList
-                    data={{ theme, deleteWeatherCard, weatherDataList }}
-                />
-            ) : (
-                <p className="empty-search">
-                    Type a city in the search bar to get its detail
-                </p>
-            )}
-        </main>
+            </header>
+            <main className={`main--container ${theme === "warm" ? "main--container__warm" : ""}`}>
+                {error ? <p className="error-search">{error}</p> : null}
+                
+                {weatherDataList.length > 0 ? (
+                    <WeatherCardList
+                        data={{ theme, deleteWeatherCard, weatherDataList }}
+                    />
+                ) : (
+                    <p className="empty-search">
+                        Type a city in the search bar to get its detail
+                    </p>
+                )}
+            </main>
+            <footer></footer>
+        </React.Fragment>
     );
 }

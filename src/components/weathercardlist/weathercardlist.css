@@ -1,8 +1,18 @@
 .weather-list{
     margin-top: 1em;
-    height: 90vh;
     width: 90%;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 2em;
+}
+
+@media screen and (min-width: 768px){
+    .weather-list{
+        width: 95%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
 }

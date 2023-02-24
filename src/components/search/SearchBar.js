@@ -22,6 +22,12 @@ export default function SearchBar(props) {
             >
                 <i className="ri-search-line"></i>
             </button>
+            <button 
+                className="form--btn__big"
+                onClick={getWeatherData}
+            >
+                    Quick search
+            </button>
         </form>
     );
 }

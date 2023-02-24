@@ -1,5 +1,5 @@
 .toggle-theme--wrapper {
-    width: 5em;
+    width: 4em;
     height: 2em;
     border: 1px solid var(--dark-color-quaternary);
     border-radius: 30px;
@@ -7,6 +7,8 @@
     align-items: center;
     background-color: var(--dark-color-quaternary);
     cursor: pointer;
+    margin-right: 1em;
+    margin-left: auto;
 }
 
 .toggle-theme--wrapper__warm {
