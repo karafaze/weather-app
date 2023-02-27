@@ -23,9 +23,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2em 0;
-    width: 100%;
-    gap: 2em;
+    padding: 2em 1em;
+    gap: 1em;
 }
 
 .main--container{
@@ -42,7 +41,7 @@ body{
 .empty-search{
     text-align: center;
     font-size: 1.6em;
-    width: 70%;
+    width: 95%;
 }
 
 .error-search{
