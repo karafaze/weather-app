@@ -65,9 +65,18 @@ export default function WeatherCard(props) {
                     theme === "warm" ? "weather--additionnal__warm" : ""
                 }`}
             >
-                <p>Wind : {cityInfo.wind_speed}</p>
-                <p>Clouds : {cityInfo.clouds}</p>
-                <p>Humidity : {cityInfo.humidity}</p>
+                <div>
+                    <i className="ri-windy-line"></i>
+                    <p>Wind: {cityInfo.wind_speed}</p>
+                </div>
+                <div>
+                    <i className="ri-cloudy-line"></i>
+                    <p>Clouds: {cityInfo.clouds}</p>
+                </div>
+                <div>
+                    <i className="ri-drop-line"></i>
+                    <p>Humidity: {cityInfo.humidity}</p>
+                </div>
             </div>
         </article>
     );
