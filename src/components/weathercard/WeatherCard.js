@@ -1,4 +1,11 @@
 import React from "react";
+import clear from '../../../src/images/clear.jpg'
+import snow from '../../../src/images/snow.jpg'
+import rain from '../../../src/images/rain.jpg'
+import thunderstorm from '../../../src/images/thunderstorm.jpg'
+import drizzle from '../../../src/images/drizzle.jpg'
+import clouds from '../../../src/images/clouds.jpg'
+
 import './weathercard.css';
 
 export default function WeatherCard(props) {
@@ -15,6 +22,16 @@ export default function WeatherCard(props) {
         return `${clientTime.getHours()}h${clientTime.getMinutes()}`;
     };
 
+    const backgroundImg = {
+        thunderstorm: thunderstorm,
+        drizzle: drizzle,
+        rain: rain,
+        snow: snow,
+        clear: clear,
+        clouds: clouds,
+        athmostphere: clouds
+    }
+
     return (
         <article
             className={`weather--single ${
@@ -26,6 +43,7 @@ export default function WeatherCard(props) {
                 className="ri-close-line delete-btn"
             ></i>
             <div
+                style={{ backgroundImage: `url(${backgroundImg[cityInfo.global_temp.toLowerCase()]})` }}
                 className={`weather--main ${
                     theme === "warm" ? "weather--main__warm" : ""
                 }`}

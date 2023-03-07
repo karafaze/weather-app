@@ -10,6 +10,7 @@
     width: 90%;
     max-width: 375px;
     box-shadow: 0px 1px 10px 2px rgba(0, 0, 0, 0.43);
+    font-family: var(--font-title);
 }
 
 @media screen and (min-width:768px) {
@@ -25,6 +26,7 @@
     right: 5px;
     font-size: 2em;
     cursor: pointer;
+    color: var(--dark-color-primary);
 }
 
 .delete-btn:hover {
@@ -41,12 +43,13 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-    gap: 1em;
-    padding: 2.5em 0;
+    padding: 8em 0 1em 0;
     background-color: var(--dark-color-tertiary);
     border-radius: 30px 0 0 0;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .weather--main__warm {
