@@ -23,7 +23,7 @@ export default function SearchBar(props) {
                 <i className="ri-search-line"></i>
             </button>
             <button 
-                className="form--btn__big"
+                className={`form--btn__big ${error ? "btn--big__error" : ''} ${theme === 'warm' ? "btn--big__warm" : ''}`}
                 onClick={getWeatherData}
             >
                     Quick search
